@@ -15,7 +15,8 @@ public class Construct : MonoBehaviour
     {
         if (placed == false)
         {
-            clone.transform.position = Input.mousePosition;
+            Vector2 adjustedPos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+            clone.transform.position = adjustedPos;
         }
     }
 
