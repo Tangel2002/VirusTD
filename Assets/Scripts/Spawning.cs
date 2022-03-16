@@ -9,10 +9,10 @@ public class Spawning : MonoBehaviour
     public Eco addMoney;
     public GameObject spawningPrefabTrojan;
     public GameObject spawningPrefabMEMZ;
-    bool roundStarted = false;
-    bool allSpawned = false;
-    int spawningCount = 5;
-    float timer;
+    public bool roundStarted = false;
+    public bool allSpawned = false;
+    public int spawningCount = 5;
+    public float timer;
     float spawnDelay;
     public int killed = 0;
     int index = 1;
@@ -43,7 +43,7 @@ public class Spawning : MonoBehaviour
                     }
                     else if (index == spawningCount) 
                     {
-                        index = 0;
+                        index = 1;
                         allSpawned = true;
                     }
                 }

@@ -182,7 +182,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Brackeys Tower Defense Tutorial Playlist:
 
-    https://www.youtube.com/watch?v=beuoNuK2tbk&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0'
+    https://www.youtube.com/watch?v=beuoNuK2tbk&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0
+
+
+    Rotation
+    on 2d play towards object
+
+    https://www.youtube.com/watch?v=mKLp-2iseDc'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

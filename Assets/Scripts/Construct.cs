@@ -61,11 +61,13 @@ public class Construct : MonoBehaviour
         {
             clone = (GameObject)Instantiate(laserDecal, Input.mousePosition, Quaternion.identity);
             towerType = 1;
+            cost = 1;
         }
         if(type == "Sniper")
         {
             clone = (GameObject)Instantiate(sniperDecal, Input.mousePosition, Quaternion.identity);
             towerType = 2;
+            cost = 2;
         }
     }
 
