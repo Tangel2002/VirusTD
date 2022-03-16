@@ -5,13 +5,15 @@ using UnityEngine;
 public class Construct : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject towerDecal;
-    public GameObject tower;
+    public GameObject laserDecal;
+    public GameObject laser;
+    public GameObject sniperDecal;
+    public GameObject sniper;
     public Eco BobuxManage;
     public int cost = 1;
     GameObject clone;
     public PolygonCollider2D track;
-
+    int towerType = -1;
     bool obstructed = false;
     bool placed = true;
     // Update is called once per frame
@@ -51,17 +53,34 @@ public class Construct : MonoBehaviour
 
 
 
-    public void Place()
+    public void Place(string type)
     {
         placed = false;
-        clone = (GameObject)Instantiate(towerDecal, Input.mousePosition, Quaternion.identity);
-
+        
+        if(type == "Laser")
+        {
+            clone = (GameObject)Instantiate(laserDecal, Input.mousePosition, Quaternion.identity);
+            towerType = 1;
+        }
+        if(type == "Sniper")
+        {
+            clone = (GameObject)Instantiate(sniperDecal, Input.mousePosition, Quaternion.identity);
+            towerType = 2;
+        }
     }
 
     public void Placed(Vector3 pos)
     {
         Destroy(clone);
         placed=true;
-        Instantiate(tower, pos, Quaternion.identity);
+        if(towerType == 1)
+        {
+            Instantiate(laser, pos, Quaternion.identity);
+        }
+        if (towerType == 2)
+        {
+            Instantiate(sniper, pos, Quaternion.identity);
+        }
+        towerType = -1;
     }
 }
