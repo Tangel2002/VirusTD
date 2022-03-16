@@ -15,10 +15,10 @@ public class Construct : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 adjustedPos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
         if (placed == false)
         {
-            Vector2 adjustedPos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+            
             clone.transform.position = adjustedPos;
         }
         if (Input.GetMouseButtonDown(0) && placed == false)
@@ -31,7 +31,7 @@ public class Construct : MonoBehaviour
                 obstructed = false;
             if(obstructed == false)
             {
-                Placed();
+                Placed(adjustedPos);
             }
         }
     }
@@ -41,13 +41,14 @@ public class Construct : MonoBehaviour
     public void Place()
     {
         placed = false;
-        clone = Instantiate(towerDecal, Input.mousePosition, Quaternion.identity);
+        clone = (GameObject)Instantiate(towerDecal, Input.mousePosition, Quaternion.identity);
 
     }
 
-    public void Placed()
+    public void Placed(Vector3 pos)
     {
+        Destroy(clone);
         placed=true;
-        Instantiate(tower, Input.mousePosition, Quaternion.identity);
+        Instantiate(tower, pos, Quaternion.identity);
     }
 }

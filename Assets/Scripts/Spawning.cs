@@ -14,7 +14,7 @@ public class Spawning : MonoBehaviour
     int spawningCount = 5;
     float timer;
     float spawnDelay;
-    int killed = 0;
+    public int killed = 0;
     int index = 1;
     // Update is called once per frame
     void Update()
@@ -52,6 +52,9 @@ public class Spawning : MonoBehaviour
         if(killed == spawningCount)
         {
             roundStarted = false;
+            allSpawned = false;
+            killed = 0;
+            spawningCount += 3;
         }
     }
 
