@@ -82,6 +82,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3653801107338335549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7313824891272967573}
+  m_Layer: 0
+  m_Name: FireHole
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7313824891272967573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3653801107338335549}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.33, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1117738186331311716}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5641061120670810393
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,14 +135,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5641061120670810393}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6480605124979549670}
   m_Father: {fileID: 1117738186331311716}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &7569867349440197903
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +173,7 @@ Transform:
   m_Children:
   - {fileID: 2139454432983232805}
   - {fileID: 7758937808145436693}
+  - {fileID: 7313824891272967573}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -158,8 +189,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2b5cb90320dee244a548a401915e4e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   range: 5
-  gun: {fileID: 2139454432983232805}
+  gun: {fileID: 1117738186331311716}
+  shootCoodlown: 1.5
+  shootRate: 1
+  bulletPrefab: {fileID: 6357928810232903771, guid: 44389e49d369f284b9a24f0a6d4511e0, type: 3}
+  firePoint: {fileID: 7313824891272967573}
 --- !u!1 &7758937808145436696
 GameObject:
   m_ObjectHideFlags: 0

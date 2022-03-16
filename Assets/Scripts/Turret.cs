@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    Transform target;
+    public Transform target;
     float check = 0;
     public float range = 5;
     public Transform gun;
-
+    public float shootCoodlown = 1.5f;
+    public float shootRate = 1;
+    public GameObject bulletPrefab;
+    public Transform firePoint;
     // Update is called once per frame
     void Update()
     {
@@ -24,12 +27,17 @@ public class Turret : MonoBehaviour
             return;
         }
 
-        Vector3 Direction = target.position - transform.position;
-        Quaternion lookRot = Quaternion.LookRotation(Direction);
-        Vector3 rotation = lookRot.eulerAngles;
-        gun.rotation = Quaternion.Euler(0f, 0f, rotation.z);
+        Vector2 Direction = target.position - transform.position;
+        float angle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg;
+        Quaternion lookRot = Quaternion.AngleAxis(angle, Vector3.forward);
+        gun.rotation = Quaternion.Slerp(transform.rotation, lookRot, 20f *Time.deltaTime);
 
-
+        if(shootCoodlown <= 0f)
+        {
+            Shoot();
+            shootCoodlown = 1f / shootRate;
+        }
+        shootCoodlown -= Time.deltaTime;
     }
 
     void findNearestEnemy()
@@ -60,6 +68,12 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
+        GameObject laserClone = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Laser las = laserClone.GetComponent<Laser>();
 
+        if(las != null)
+        {
+            las.Attack(target);
+        }
     }
 }
