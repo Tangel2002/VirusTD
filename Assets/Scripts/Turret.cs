@@ -70,7 +70,7 @@ public class Turret : MonoBehaviour
     {
         GameObject laserClone = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Laser las = laserClone.GetComponent<Laser>();
-
+        this.gameObject.GetComponent<AudioSource>().Play();
         if(las != null)
         {
             las.Attack(target);

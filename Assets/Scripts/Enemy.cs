@@ -21,9 +21,11 @@ public class Enemy : MonoBehaviour
     {
         if(Health <= 0)
         {
+            Spawner.gameObject.GetComponent<AudioSource>().Play();
             Destroy(gameObject);
             addMoney.AddBobux(0.25f);
             reference.killed++;
+            Destroy(gameObject);
             return;
         }
     }

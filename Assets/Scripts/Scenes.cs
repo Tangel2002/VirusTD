@@ -7,11 +7,12 @@ public class Scenes : MonoBehaviour
 {
     public void Load(string Scene)
     {
-        if(Scene == "Q")
+        if (Scene == "Q")
         {
             Application.Quit();
         }
-        SceneManager.LoadScene(Scene);
+        else
+            SceneManager.LoadScene(Scene);
 
     }
 

@@ -6,13 +6,13 @@ using TMPro;
 
 public class Eco : MonoBehaviour
 {
-    private float Bobux = 99;
+    private float Bobux = 5;
     public TextMeshProUGUI text;
 
 
     private void Update()
     {
-        text.text = "Bobux: " + Bobux;
+        text.text = "Bobux: " + Bobux + " / 100";
 
         if(Bobux >= 100)
         {
