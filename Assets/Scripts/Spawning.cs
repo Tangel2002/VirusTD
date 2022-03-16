@@ -6,7 +6,7 @@ public class Spawning : MonoBehaviour
 {
 
     public GameObject spawning;
-
+    public Eco addMoney;
     public GameObject spawningPrefabTrojan;
     public GameObject spawningPrefabMEMZ;
     bool roundStarted = false;
@@ -51,6 +51,7 @@ public class Spawning : MonoBehaviour
         }
         if(killed == spawningCount)
         {
+            addMoney.AddBobux(3);
             roundStarted = false;
             allSpawned = false;
             killed = 0;

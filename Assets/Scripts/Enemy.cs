@@ -8,10 +8,12 @@ public class Enemy : MonoBehaviour
     public int Health = 1;
     GameObject Spawner;
     Spawning reference;
+    Eco addMoney;
     void Start()
     {
         Spawner = GameObject.FindGameObjectWithTag("Respawn");
         Eco = GameObject.FindGameObjectWithTag("Eco");
+        addMoney = Eco.GetComponent<Eco>();
         reference = Spawner.GetComponent<Spawning>();
     }
     // Update is called once per frame
@@ -20,6 +22,7 @@ public class Enemy : MonoBehaviour
         if(Health <= 0)
         {
             Destroy(gameObject);
+            addMoney.AddBobux(0.25f);
             reference.killed++;
             return;
         }

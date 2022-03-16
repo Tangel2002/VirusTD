@@ -7,6 +7,8 @@ public class Construct : MonoBehaviour
     // Start is called before the first frame update
     public GameObject towerDecal;
     public GameObject tower;
+    public Eco BobuxManage;
+    public int cost = 1;
     GameObject clone;
     public PolygonCollider2D track;
 
@@ -18,8 +20,10 @@ public class Construct : MonoBehaviour
         Vector3 adjustedPos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
         if (placed == false)
         {
-            
-            clone.transform.position = adjustedPos;
+            if (clone != null)
+            {
+                clone.transform.position = adjustedPos;
+            }
         }
         if (Input.GetMouseButtonDown(0) && placed == false)
         {
@@ -31,8 +35,17 @@ public class Construct : MonoBehaviour
                 obstructed = false;
             if(obstructed == false)
             {
-                Placed(adjustedPos);
+                if(BobuxManage.Verify(cost) == true)
+                {
+                    Placed(adjustedPos);
+                    BobuxManage.RemoveBobux(cost);
+                }
+                
             }
+        }
+        if(Input.GetMouseButtonDown(1))
+        {
+            Destroy(clone);
         }
     }
 
