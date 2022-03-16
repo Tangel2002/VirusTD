@@ -19,12 +19,10 @@ public class pathing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(index);
         
         if(index <= waypoints.Length - 1)
         {
             this.transform.position = Vector2.MoveTowards(transform.position, waypoints[index].position, movespeed * Time.deltaTime);
-            print(waypoints[index].name);
             if(this.transform.position == waypoints[index].position)
             {
                 index++;
